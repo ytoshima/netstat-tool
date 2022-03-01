@@ -19,6 +19,29 @@ done
 
 The tool is a Python 3 script and it requires Python 3.5 or higher.
 
+## Running the tool
+
+```shell
+$ head out-netstat.txt 
+2022/03/02 06:44
+Ip:
+    3632 total packets received
+    2 with invalid addresses
+    0 forwarded
+    0 incoming packets discarded
+    3630 incoming packets delivered
+    2369 requests sent out
+Icmp:
+    0 ICMP messages received
+
+$ python3 netstat-tool.py out-netstat.txt 
+...
+
+$ ls out.*
+out.csv		out.html
+
+```
+
 ## Output
 If the script completes successfully, it creates two outputs, out.csv and out.html.
 
