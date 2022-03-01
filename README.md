@@ -3,6 +3,8 @@
 ## Summary
 netstat-tool processes reppeated pattern of timestamp (YYYY/mm/dd HH:MM) and netstat -s output from Linux and generates csv file and html file which contains graph of netstat -s metrics.
 
+![This is an image](images/sample-graph.png)
+
 Following shell script generate the expected input.  The output needs to be redirected to a file.
 
 ```sh
