@@ -1,11 +1,11 @@
 # netstat-tool
 
 ## Summary
-netstat-tool processes reppeated pattern of timestamp (YYYY/mm/dd HH:MM) and netstat -s output from Linux and generates csv file and html file which contains graph of netstat -s metrics.
+netstat-tool processes reppeated pattern of timestamp (YYYY/mm/dd HH:MM) and netstat -s output from Linux.  It then generates a csv file and an html file which contains graph of netstat -s metrics.
 
 ![This is an image](images/sample-graph.png)
 
-Following shell script generate the expected input.  The output needs to be redirected to a file.
+Following shell script generates the expected input.  The output needs to be redirected to a file.
 
 ```sh
 #!/bin/bash
@@ -17,7 +17,7 @@ while true; do
 done
 ```
 
-The tool is a Python 3 script and it requires Python 3.5 or higher.
+This tool is a Python 3 script and it requires Python 3.5 or higher.
 
 ## Running the tool
 
