@@ -35,7 +35,6 @@ Icmp:
     0 ICMP messages received
 
 $ python3 netstat-tool.py out-netstat.txt 
-...
 
 $ ls out.*
 out.csv		out.html
@@ -47,7 +46,8 @@ If the script completes successfully, it creates two outputs, out.csv and out.ht
 
 out.csv can be read by spreadsheet applications.
 
-sample:
+### Sample out.csv
+
 ```
 $ cut -d, -f 1-8 out.csv | sed 's/$/,.../'
 "ts","Ip__total-packets-received","Ip__with-invalid-addresses","Ip__forwarded","Ip__incoming-packets-discarded","Ip__incoming-packets-delivered","Ip__requests-sent-out","Icmp__ICMP-messages-received",...
@@ -65,6 +65,8 @@ $ cut -d, -f 1-8 out.csv | sed 's/$/,.../'
 "2022/03/02 06:55","7001","2","0","0","6999","5723","202",...
 "2022/03/02 06:56","7097","2","0","0","7095","5781","202",...
 ```
+
+### Sample out.html
 
 out.html contains graphs written by c3 library (https://c3js.org/) and d3.js (https://d3js.org/).  You need to copy cs.css, c3.min.js and d3.min.js extracted from c3/d3 library to js sub-directory.  my.css is an optional css file to customize fonts, etc.  Sample is listed later.
 
@@ -89,6 +91,7 @@ netstat graph<br/>
 <div class="note">xaxis to time: [(0, '2022/03/02 06:44'), (1, '2022/03/02 06:45'), (2, '2022/03/02 06:46'), (3, '2022/03/02 06:47')]...[(11, '2022/03/02 06:55'), (12, '2022/03/02 06:56')]</div>
 <div id="Ip__total-packets-received" style="height: 200px; width: 500px; display: inline-block;">Ip__total-packets-received</div>
 <div id="Ip__with-invalid-addresses" style="height: 200px; width: 500px; display: inline-block;">Ip__with-invalid-addresses</div>
+:
 ```
   
 js/my.css sample
