@@ -1,38 +1,27 @@
 #!/usr/bin/env python
 # 
 """netstat-tool.py
-Process netstat -s outputs
+Netstat-tool processes reppeated pattern of timestamp (YYYY/mm/dd HH:MM) and netstat -s output from Linux. It then generates a csv file and an html file which contains graph of netstat -s metrics.
 
-2021/5/24 9:00
+Sample input:
+$ head out-netstat.txt
+2022/03/02 06:44
 Ip:
-    103427751422 total packets received
-    527 forwarded
+    3632 total packets received
+    2 with invalid addresses
+    0 forwarded
     0 incoming packets discarded
-    :
+    3630 incoming packets delivered
+    2369 requests sent out
 Icmp:
-    13535584 ICMP messages received
-    1711 input ICMP message failed.
-    ICMP input histogram:
-        destination unreachable: 46993
-        timeout in transit: 1470
-        echo requests: 13485660
-        echo replies: 1461
-    13536498 ICMP messages sent
-    0 ICMP messages failed
-    ICMP output histogram:
-        destination unreachable: 47407
-        echo request: 3539
-        echo replies: 13485552
+    0 ICMP messages received
+
 """
 
 import sys,os,re,copy
 from string import Template
 assert sys.version_info >= (3, 5)
 
-#metricLinePattern = re.compile('(?P<pre>[^\d]*)(?P<val>\d+)(?P<post>[^\d]*)$')
-#metricLinePattern = re.compile('(?P<pre>[^\d]*)(?P<val>\d+)(?P<post>[^\d]*)$')
-#metricLinePattern = re.compile('(?P<pre>[^\d]+)(?P<val>\d+)(?P<post>[^\d]*)$')
-#metricLinePattern = re.compile('(?P<pre>([^\d]+|[a-zA-Z ]+\d+: +))(?P<val>\d+)(?P<post>[^\d]*)$')  
 metricLinePattern = re.compile('(?P<pre>([^\d]+|[^\d]+\d+:[ ]+))(?P<val>\d+)(?P<post>[^\d]*)$')  
 secHdrPtn = re.compile('^(?P<hdr>[a-zA-Z]+):')
 subHdrPtn = re.compile('^ +(?P<hdr>[a-zA-Z ]+): *$')
